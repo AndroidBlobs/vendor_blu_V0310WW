@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<config>
+	<conf check_path="/sys/class/rt5509_cal/rt5509.0/calibrated"
+	      param_path="/sys/bus/platform/devices/rt5509_param.0/prop_param"
+	      param_file="/system/vendor/etc/smartpa_param/rt5509_param">
+			<ctl name="Speaker Protection" val="0"></ctl>
+	</conf>
+
+	<scenario name = "init">
+		<ctl name="I2SDOR Mux" val="4"></ctl>
+		<ctl name="I2S Mux" val="1"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703AC-4 rt5509 bypass begin -->
+		<ctl name="RLR Func" val="1"></ctl>
+		<!-- gain per step 3db, starting from 0dB, maximum is 21dB -->
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703AC-4 rt5509 bypass end   -->
+	</scenario>
+	<scenario name = "deinit" />
+	<scenario name="speaker_on_normal">
+		<ctl name="I2S Mux" val="0"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703AC-4 rt5509 bypass begin -->
+		<!-- gain per step 3db, starting from 0dB, maximum is 21dB -->
+		<ctl name="ALC Fixed Gain" val="1"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703AC-4 rt5509 bypass end   -->
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 begin -->
+		<ctl name="DAC Volume" val="255"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 end -->
+		<ctl name="Ext_DO_Enable" val="1"></ctl>
+	</scenario>
+	<scenario name="speaker_on_phonecall">
+		<ctl name="I2S Mux" val="0"></ctl>
+		<!-- gain per step 3db, starting from 0dB, maximum is 21dB -->
+		<ctl name="ALC Fixed Gain" val="3"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 begin -->
+		<ctl name="DAC Volume" val="255"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 end -->
+		<ctl name="Ext_DO_Enable" val="1"></ctl>
+	</scenario>
+	<scenario name="speaker_on_voip">
+		<ctl name="I2S Mux" val="0"></ctl>
+		<!-- gain per step 3db, starting from 0dB, maximum is 21dB -->
+		<ctl name="ALC Fixed Gain" val="3"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 begin -->
+		<ctl name="DAC Volume" val="255"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 end -->
+		<ctl name="Ext_DO_Enable" val="1"></ctl>
+	</scenario>
+	<scenario name="receiver_on_phonecall" />
+	<scenario name="receiver_on_voip" />
+	<scenario name="amp_off">
+		<ctl name="Ext_DO_Enable" val="0"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 begin -->
+		<ctl name="DAC Volume" val="251"></ctl>
+		<ctl name="DAC Volume" val="247"></ctl>
+		<ctl name="DAC Volume" val="243"></ctl>
+		<ctl name="DAC Volume" val="239"></ctl>
+		<ctl name="DAC Volume" val="235"></ctl>
+		<ctl name="DAC Volume" val="231"></ctl>
+		<ctl name="DAC Volume" val="227"></ctl>
+		<ctl name="DAC Volume" val="223"></ctl>
+		<ctl name="DAC Volume" val="219"></ctl>
+		<ctl name="DAC Volume" val="215"></ctl>
+		<ctl name="DAC Volume" val="211"></ctl>
+		<ctl name="DAC Volume" val="207"></ctl>
+		<ctl name="DAC Volume" val="203"></ctl>
+		<ctl name="DAC Volume" val="199"></ctl>
+		<ctl name="DAC Volume" val="195"></ctl>
+		<ctl name="DAC Volume" val="191"></ctl>
+		<ctl name="DAC Volume" val="187"></ctl>
+		<ctl name="DAC Volume" val="183"></ctl>
+		<ctl name="DAC Volume" val="179"></ctl>
+		<ctl name="DAC Volume" val="175"></ctl>
+		<ctl name="DAC Volume" val="171"></ctl>
+		<ctl name="DAC Volume" val="167"></ctl>
+		<ctl name="DAC Volume" val="163"></ctl>
+		<ctl name="DAC Volume" val="159"></ctl>
+		<ctl name="DAC Volume" val="155"></ctl>
+		<ctl name="DAC Volume" val="151"></ctl>
+		<ctl name="DAC Volume" val="147"></ctl>
+		<ctl name="DAC Volume" val="143"></ctl>
+		<ctl name="DAC Volume" val="139"></ctl>
+		<ctl name="DAC Volume" val="135"></ctl>
+		<ctl name="DAC Volume" val="131"></ctl>
+		<ctl name="DAC Volume" val="127"></ctl>
+		<ctl name="DAC Volume" val="95"></ctl>
+		<ctl name="DAC Volume" val="63"></ctl>
+		<ctl name="DAC Volume" val="31"></ctl>
+		<ctl name="DAC Volume" val="0"></ctl>
+<!-- CY <CY_BSP_AUD> <huping> <20180402> add for CSW1703A-1525 end -->
+		<ctl name="ALC Fixed Gain" val="0"></ctl>
+		<ctl name="I2S Mux" val="1"></ctl>
+	</scenario>
+</config>

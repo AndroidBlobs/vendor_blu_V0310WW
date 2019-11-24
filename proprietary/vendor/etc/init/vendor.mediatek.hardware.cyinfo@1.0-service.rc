@@ -1,0 +1,4 @@
+service vendor.cyinfo-1-0 /vendor/bin/hw/vendor.mediatek.hardware.cyinfo@1.0-service
+    class hal
+    user system
+    group system
